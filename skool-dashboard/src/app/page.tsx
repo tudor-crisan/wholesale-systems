@@ -9,6 +9,8 @@ interface Harvest {
   timestamp: string;
   groupName: string;
   url: string;
+  logoUrl?: string;
+  coverUrl?: string;
   category?: string;
 }
 
@@ -134,13 +136,24 @@ export default function Home() {
             <Link href={`/harvests/${h.id}`} className="block bg-white rounded-[24px] overflow-hidden border border-[#e5e5e5] hover:border-[#f7d37c] hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-1">
               <div className="relative h-40 bg-slate-100 overflow-hidden">
                 <div className="absolute top-4 left-4 z-10 bg-black/40 text-white text-[10px] font-black px-2.5 py-1 rounded-md backdrop-blur-md">#{i+1}</div>
-                <div className="w-full h-full bg-gradient-to-br from-blue-50 to-emerald-50 flex items-center justify-center text-blue-100/50">
-                  <svg className="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
-                </div>
+                {h.coverUrl ? (
+                  <>
+                    <img src={h.coverUrl} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                  </>
+                ) : (
+                  <div className="w-full h-full bg-gradient-to-br from-blue-50 to-emerald-50 flex items-center justify-center text-blue-100/50">
+                    <svg className="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                  </div>
+                )}
               </div>
               <div className="p-7">
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 bg-[#2929FF] rounded-[12px] flex items-center justify-center text-white font-black text-xl shadow-lg shadow-blue-600/20">{h.groupName?.[0]}</div>
+                  {h.logoUrl ? (
+                    <img src={h.logoUrl} className="w-12 h-12 rounded-[12px] object-cover shadow-lg border border-[#e5e5e5]" />
+                  ) : (
+                    <div className="w-12 h-12 bg-[#2929FF] rounded-[12px] flex items-center justify-center text-white font-black text-xl shadow-lg shadow-blue-600/20">{h.groupName?.[0]}</div>
+                  )}
                   <div className="min-w-0 flex-1">
                     <h3 className="font-extrabold text-xl leading-tight group-hover:text-[#2929FF] transition-colors truncate">{h.groupName}</h3>
                     <p className="text-[10px] text-slate-400 font-black uppercase tracking-widest mt-1">{new Date(h.timestamp).toLocaleDateString()}</p>

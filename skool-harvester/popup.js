@@ -3,7 +3,7 @@ document.getElementById('syncBtn').addEventListener('click', async () => {
   const syncBtn = document.getElementById('syncBtn');
   const pageCount = parseInt(document.getElementById('pageCount').value) || 1;
   
-  statusEl.textContent = 'Initializing Intelligence Crawler...';
+  statusEl.textContent = 'Preparing Crawler...';
   statusEl.className = '';
   syncBtn.disabled = true;
 
@@ -14,13 +14,16 @@ document.getElementById('syncBtn').addEventListener('click', async () => {
       throw new Error('Please open a Skool group first');
     }
 
-    // Listen for progress messages from the content script
+    // Define listener
     const messageListener = (message) => {
+      console.log('Popup received:', message);
       if (message.type === 'CRAWL_PROGRESS') {
-        statusEl.textContent = `Capturing Intelligence: Page ${message.page} of ${message.total}...`;
+        statusEl.textContent = `Capturing Page ${message.page} of ${message.total}...`;
+        statusEl.style.background = '#fef9c3';
+        statusEl.style.color = '#854d0e';
       }
       if (message.type === 'CRAWL_COMPLETE') {
-        statusEl.textContent = 'Intelligence Updated! Check Dashboard.';
+        statusEl.textContent = 'Success! Niche Updated.';
         statusEl.style.background = '#dcfce7';
         statusEl.style.color = '#166534';
         syncBtn.disabled = false;
@@ -34,19 +37,21 @@ document.getElementById('syncBtn').addEventListener('click', async () => {
       }
     };
 
+    // Add listener BEFORE sending the start command
     chrome.runtime.onMessage.addListener(messageListener);
 
-    // Send crawl command
+    // Start crawl
     chrome.tabs.sendMessage(tab.id, { 
       action: 'crawl', 
       pages: pageCount 
     }, (response) => {
        if (chrome.runtime.lastError) {
-         statusEl.textContent = 'Error: Refresh the Skool page first';
+         statusEl.textContent = 'Error: Reload Skool page first';
          statusEl.className = 'error';
          syncBtn.disabled = false;
          chrome.runtime.onMessage.removeListener(messageListener);
-         return;
+       } else {
+         statusEl.textContent = 'Intelligence Crawl Started...';
        }
     });
 

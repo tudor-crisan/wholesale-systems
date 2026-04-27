@@ -19,11 +19,16 @@ export async function GET() {
       const group = pageProps?.currentGroup || pageProps?.allGroups?.[0];
       const groupName = group?.metadata?.displayName || group?.name || 'Unknown Group';
 
+      const logoUrl = group?.metadata?.logoUrl || group?.metadata?.logo_url;
+      const coverUrl = group?.metadata?.coverSmallUrl || group?.metadata?.cover_small_url || group?.metadata?.coverUrl;
+
       return {
         id: file,
         name: file,
         timestamp: content.timestamp || stats.mtime.toISOString(),
         groupName: groupName,
+        logoUrl: logoUrl,
+        coverUrl: coverUrl,
         url: content.url
       };
     }).sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime());
