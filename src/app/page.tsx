@@ -50,12 +50,22 @@ export default function PresentationPage() {
               I build custom software and automation systems for high-volume wholesalers who are tired of manual follow-ups and CRM chaos.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <button className="px-8 py-4 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl font-semibold transition-all flex items-center gap-2 group shadow-lg shadow-emerald-900/20">
+              <a 
+                href="https://wa.me/+40757754718"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-4 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl font-semibold transition-all flex items-center gap-2 group shadow-lg shadow-emerald-900/20"
+              >
                 Book a Systems Audit <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
-              <button className="px-8 py-4 bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-300 rounded-xl font-semibold transition-all">
+              </a>
+              <a 
+                href="https://tudorcrisan.dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-4 bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-300 rounded-xl font-semibold transition-all"
+              >
                 View My Tech Stack
-              </button>
+              </a>
             </div>
           </motion.div>
         </div>
@@ -199,9 +209,14 @@ export default function PresentationPage() {
         <div className="max-w-3xl mx-auto glass p-16 rounded-[3rem] border-emerald-500/20 shadow-2xl shadow-emerald-950/20">
           <h2 className="text-4xl md:text-5xl font-bold mb-8 italic tracking-tight">Ready to stop grinding and start <span className="text-emerald-400 font-bold not-italic">scaling?</span></h2>
           <p className="text-slate-400 text-lg mb-12">I only work with 2 new wholesale teams per month to ensure dedicated systems support.</p>
-          <button className="px-10 py-5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-2xl font-bold text-xl transition-all shadow-xl shadow-emerald-900/40 transform hover:-translate-y-1 active:scale-95">
+          <a 
+            href="https://wa.me/+40757754718"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-10 py-5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-2xl font-bold text-xl transition-all shadow-xl shadow-emerald-900/40 transform hover:-translate-y-1 active:scale-95"
+          >
             Apply for a Systems Audit
-          </button>
+          </a>
           <p className="mt-8 text-slate-500 text-sm flex items-center justify-center gap-2">
             <CheckCircle2 className="w-4 h-4 text-emerald-500" /> Guaranteed response within 24 hours
           </p>
