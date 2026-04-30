@@ -205,8 +205,8 @@ export default function PresentationPage() {
       </section>
 
       {/* Final CTA */}
-      <section id="contact" className="py-24 px-6 text-center">
-        <div className="max-w-3xl mx-auto glass p-16 rounded-[3rem] border-emerald-500/20 shadow-2xl shadow-emerald-950/20">
+      <section id="contact" className="py-24 px-8 md:px-12 text-center">
+        <div className="max-w-3xl mx-auto glass py-16 px-10 md:px-24 rounded-[3rem] border-emerald-500/20 shadow-2xl shadow-emerald-950/20">
           <h2 className="text-4xl md:text-5xl font-bold mb-8 italic tracking-tight">Ready to stop grinding and start <span className="text-emerald-400 font-bold not-italic">scaling?</span></h2>
           <p className="text-slate-400 text-lg mb-12">I only work with 2 new wholesale teams per month to ensure dedicated systems support.</p>
           <a 
