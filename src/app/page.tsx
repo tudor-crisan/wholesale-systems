@@ -28,7 +28,7 @@ export default function PresentationPage() {
   return (
     <div className="min-h-screen bg-[#020617] text-slate-50 font-sans selection:bg-emerald-500/30">
       {/* Hero Section */}
-      <section className="relative pt-24 pb-20 px-6 overflow-hidden">
+      <section id="home" className="relative pt-32 pb-20 px-6 overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full emerald-gradient -z-10" />
         <div className="max-w-6xl mx-auto text-center">
           <motion.div
@@ -72,7 +72,7 @@ export default function PresentationPage() {
       </section>
 
       {/* Problem Section (Bento Grid) */}
-      <section className="py-24 px-6 bg-slate-950/50">
+      <section id="why-us" className="py-24 px-6 bg-slate-950/50">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Is Your Business Built on Sand?</h2>
@@ -108,7 +108,7 @@ export default function PresentationPage() {
       </section>
 
       {/* Interactive Calculator Section */}
-      <section className="py-24 px-6 relative">
+      <section id="calculator" className="py-24 px-6 relative">
         <div className="max-w-4xl mx-auto glass p-10 md:p-16 rounded-[2.5rem] relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
           
@@ -154,7 +154,7 @@ export default function PresentationPage() {
       </section>
 
       {/* The Solution / Services */}
-      <section className="py-24 px-6 bg-slate-950/50">
+      <section id="services" className="py-24 px-6 bg-slate-950/50">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Tailored Solutions for Wholesalers</h2>
@@ -205,7 +205,7 @@ export default function PresentationPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-24 px-6 text-center">
+      <section id="contact" className="py-24 px-6 text-center">
         <div className="max-w-3xl mx-auto glass p-16 rounded-[3rem] border-emerald-500/20 shadow-2xl shadow-emerald-950/20">
           <h2 className="text-4xl md:text-5xl font-bold mb-8 italic tracking-tight">Ready to stop grinding and start <span className="text-emerald-400 font-bold not-italic">scaling?</span></h2>
           <p className="text-slate-400 text-lg mb-12">I only work with 2 new wholesale teams per month to ensure dedicated systems support.</p>

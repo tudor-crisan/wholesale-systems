@@ -18,7 +18,25 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.png",
   },
+  openGraph: {
+    title: "Wholesale Systems - Scale Beyond the Grind",
+    description: "Custom software and automation for high-volume real estate wholesalers.",
+    url: "https://tudorcrisan.dev", // Update this if there is a specific domain for this project
+    siteName: "Wholesale Systems",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Wholesale Systems - Scale Beyond the Grind",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
 };
+
+import Navbar from "@/components/Navbar";
 
 export default function RootLayout({
   children,
@@ -30,7 +48,10 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
